@@ -7,14 +7,13 @@
 
 <style>
   :root{
-    /* Pastel theme */
     --bg: #fbfbfe;
     --surface: #ffffff;
     --muted: #6b7280;
-    --accent1: #a8d5ff; /* baby blue */
-    --accent2: #ffd6e7; /* soft pink */
-    --accent3: #e9d7ff; /* lavender */
-    --accent4: #c8fde5; /* mint */
+    --accent1: #a8d5ff;
+    --accent2: #ffd6e7;
+    --accent3: #e9d7ff;
+    --accent4: #c8fde5;
     --text: #0f172a;
     --glass: rgba(255,255,255,0.6);
     --radius: 14px;
@@ -27,67 +26,35 @@
   }
 
   *{box-sizing:border-box}
-  html,body{height:100%;}
-  body{
-    margin:0;
-    background:linear-gradient(180deg,var(--bg),#ffffff);
-    color:var(--text);
-    line-height:1.45;
-    font-size:16px;
-  }
-
-  /* Header / Nav */
-  header{
-    position:sticky;
-    top:0;
-    z-index:60;
-    backdrop-filter: blur(6px);
-    background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
-    border-bottom: 1px solid rgba(15,23,42,0.04);
-  }
-  .nav-wrap{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;height:var(--nav-height);}
+  html,body{height:100%;margin:0;font-size:16px;line-height:1.45;color:var(--text);background:linear-gradient(180deg,var(--bg),#ffffff)}
+  
+  header{position:sticky;top:0;z-index:60;backdrop-filter: blur(6px);background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));border-bottom:1px solid rgba(15,23,42,0.04)}
+  .nav-wrap{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;height:var(--nav-height)}
   .brand{display:flex;align-items:center;gap:12px}
-  .logo{
-    width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent3));
-    display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:20px;box-shadow:var(--shadow)
-  }
+  .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent3));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:20px;box-shadow:var(--shadow)}
   .brand h1{margin:0;font-size:18px;letter-spacing:0.2px}
   .brand p{margin:0;font-size:12px;color:var(--muted)}
-
-  nav.primary{
-    display:flex;align-items:center;gap:8px;
-  }
-  nav.primary a{
-    text-decoration:none;padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:600;font-size:14px;
-    transition:all .25s ease;
-  }
+  nav.primary{display:flex;align-items:center;gap:8px}
+  nav.primary a{text-decoration:none;padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:600;font-size:14px;transition:all .25s ease}
   nav.primary a:hover{background:rgba(168,213,255,0.25);color:var(--text)}
   .cta{background:linear-gradient(90deg,var(--accent2),var(--accent3));padding:8px 12px;color:#222;border-radius:10px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
-
-  /* mobile nav toggle */
   .hamburger{display:none;background:none;border:0;padding:8px;border-radius:8px}
   .hamburger span{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;border-radius:2px}
 
-  /* Main layout */
   main{max-width:var(--max-w);margin:28px auto;padding:0 20px}
   .hero{display:grid;grid-template-columns:1fr 340px;gap:22px;align-items:start}
-  .hero-card{background:var(--surface);padding:22px;border-radius:var(--radius);box-shadow:var(--shadow)}
+  .hero-card,.card{background:var(--surface);padding:22px;border-radius:var(--radius);box-shadow:var(--shadow)}
   .hero h2{margin:0 0 8px;font-size:28px}
   .lead{margin:0;color:var(--muted)}
   .tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
   .tag{background:linear-gradient(90deg,var(--accent4),#eafbf6);padding:8px 10px;border-radius:999px;font-weight:700;color:var(--text);font-size:13px}
-
   .profile-box{background:linear-gradient(180deg,#fff,#f8fbff);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:12px;align-items:center;box-shadow:var(--shadow)}
   .avatar{width:100%;height:260px;border-radius:10px;background-image:linear-gradient(135deg,var(--accent1),var(--accent3));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:28px}
 
-  /* Sections: SPA behavior */
   .section{display:none;opacity:0;transform:translateY(6px);transition:opacity .45s ease, transform .45s ease;will-change:opacity,transform;margin-top:18px}
   .section.active{display:block;opacity:1;transform:none}
-
   .section-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  .card{background:var(--surface);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
 
-  /* family / gallery */
   .family{display:flex;gap:14px;flex-wrap:wrap}
   .member{flex:1 1 150px;min-width:120px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#fff,#fcfcff)}
   .member img{width:100%;height:140px;object-fit:cover;display:block}
@@ -97,15 +64,13 @@
   .gallery-grid img{width:100%;height:110px;object-fit:cover;border-radius:10px;cursor:pointer;transition:transform .25s ease}
   .gallery-grid img:hover{transform:scale(1.03)}
 
-  /* labs list */
-  .labs ol{padding-left:18px;color:var(--muted)}
+  .lab-card { margin-bottom: 20px; padding: 12px 18px; background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); }
+  .lab-card h3 { margin:0; cursor:pointer; user-select:none }
+  .lab-content { margin-top:12px; overflow:hidden; max-height:0; transition:max-height 0.4s ease; }
+  .lab-btn { display:inline-block; padding:10px 20px; background:#007BFF; color:#fff; border-radius:5px; text-decoration:none; transition:0.3s }
+  .lab-btn:hover { background:#0056b3 }
 
-  /* responsive tweaks */
-  @media (max-width:980px){
-    .hero{grid-template-columns:1fr}
-    .section-grid{grid-template-columns:1fr}
-    .profile-box{order:-1}
-  }
+  @media (max-width:980px){.hero{grid-template-columns:1fr}.section-grid{grid-template-columns:1fr}.profile-box{order:-1}}
   @media (max-width:720px){
     nav.primary{display:none}
     .hamburger{display:block}
@@ -114,12 +79,9 @@
     .nav-mobile a:hover{background:rgba(168,213,255,0.18);color:var(--text)}
   }
 
-  /* small visual helpers */
   .muted{color:var(--muted)}
   .center{text-align:center}
   footer{padding:24px 0;color:var(--muted);text-align:center;font-size:14px}
-
-  /* subtle entrance animations for cards */
   .card[data-anim="pop"]{transform-origin:center;transition:transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s ease;}
   .card.show{transform:translateY(-6px);opacity:1}
 </style>
@@ -135,7 +97,6 @@
         <p class="muted">Student Portfolio — Pastel Theme</p>
       </div>
     </div>
-
     <nav class="primary" aria-label="Primary navigation">
       <a href="#" data-target="home">Home</a>
       <a href="#" data-target="about">About</a>
@@ -147,16 +108,11 @@
       <a href="#" data-target="labs">Labs</a>
       <a href="#" data-target="gallery">Gallery</a>
     </nav>
-
     <div style="display:flex;gap:10px;align-items:center">
       <a class="cta" href="#contact">Contact</a>
-      <button class="hamburger" aria-label="Open menu" id="hambtn">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="hamburger" aria-label="Open menu" id="hambtn"><span></span><span></span><span></span></button>
     </div>
   </div>
-
-  <!-- mobile nav (hidden on bigger screens) -->
   <div class="nav-mobile" id="mobileNav" aria-hidden="true" style="display:none;max-width:var(--max-w);margin:0 auto">
     <a href="#" data-target="home">Home</a>
     <a href="#" data-target="about">About</a>
@@ -177,13 +133,11 @@
       <div class="hero-card card" data-anim="pop">
         <h2>Hi — I'm Alex</h2>
         <p class="lead">Welcome to my student portfolio. Click the menu to view each section — only the selected section will appear. This modern pastel theme is responsive and animated.</p>
-
         <div class="tags">
           <div class="tag">Grade: 10</div>
           <div class="tag">Hometown</div>
           <div class="tag">Birthday: Jan 1</div>
         </div>
-
         <div style="margin-top:16px" class="card" data-anim="pop">
           <h3 style="margin:0 0 8px">Quick Highlights</h3>
           <ul class="muted" style="margin:0;padding-left:18px">
@@ -193,7 +147,6 @@
           </ul>
         </div>
       </div>
-
       <aside class="profile-box">
         <div class="avatar">Your Photo</div>
         <div style="width:100%;display:flex;gap:10px;justify-content:center">
@@ -215,7 +168,6 @@
           <img src="https://picsum.photos/seed/about2/400/260" alt="about2" style="width:48%;border-radius:10px;object-fit:cover">
         </div>
       </div>
-
       <div class="card" data-anim="pop">
         <h3>Personal Info</h3>
         <ul class="muted" style="margin:8px 0 0;padding-left:18px">
@@ -302,21 +254,60 @@
   <section id="goals" class="section">
     <div class="card">
       <h3>Future Goals</h3>
-      <p class="muted">Short-term: finish high school with good grades. Long-term: study engineering and build sustainable tech.</p>
+      <ul class="muted" style="padding-left:18px">
+        <li>Graduate with honors</li>
+        <li>Become a software engineer</li>
+        <li>Travel to Japan</li>
+      </ul>
     </div>
   </section>
 
   <!-- LABS -->
   <section id="labs" class="section">
-    <div class="card">
-      <h3>Laboratory Exercises (placeholders)</h3>
-      <ol class="muted" style="margin-top:10px">
-        <li>Lab 1 — Title / Objective / Short summary</li>
-        <li>Lab 2 — Title / Objective / Short summary</li>
-        <li>Lab 3 — Title / Objective / Short summary</li>
-        <li>Lab 4 — Title / Objective / Short summary</li>
-        <li>Lab 5 — Title / Objective / Short summary</li>
-      </ol>
+    <div class="card" data-anim="pop">
+      <h2>Laboratory Exercises</h2>
+
+      <!-- Lab 1 -->
+      <div class="lab-card" data-anim="pop">
+        <h3 class="lab-toggle">Lab 1: The Story of Kenneth ▼</h3>
+        <div class="lab-content">
+          <iframe src="https://knnthsmd-beep.github.io/myportfoliowebsite/the%20story%20of%20kenneth.html" width="100%" height="400" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+        </div>
+      </div>
+
+      <!-- Lab 2 -->
+      <div class="lab-card" data-anim="pop">
+        <h3 class="lab-toggle">Lab 2: Batanggas Lomi ▼</h3>
+        <div class="lab-content">
+          <iframe src="https://knnthsmd-beep.github.io/myportfoliowebsite/batanggas%20lomi.html" width="100%" height="400" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+        </div>
+      </div>
+
+      <!-- Lab 3 -->
+      <div class="lab-card" data-anim="pop">
+        <h3 class="lab-toggle">Lab 3: Bike ▼</h3>
+        <div class="lab-content">
+          <iframe src="https://knnthsmd-beep.github.io/myportfoliowebsite/bike.html" width="100%" height="400" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+        </div>
+      </div>
+
+      <!-- Lab 4 (PHP) -->
+      <div class="lab-card" data-anim="pop">
+        <h3 class="lab-toggle">Lab 4: Order Form ▼</h3>
+        <div class="lab-content">
+          <p>This lab uses PHP, so it opens in a new tab:</p>
+          <a href="#" target="_blank" class="lab-btn">Open Lab 4</a>
+        </div>
+      </div>
+
+      <!-- Lab 5 -->
+      <div class="lab-card" data-anim="pop">
+        <h3 class="lab-toggle">Lab 5: Kenneth Form ▼</h3>
+        <div class="lab-content">
+          <iframe src="https://knnthsmd-beep.github.io/myportfoliowebsite/kenneth%20form.html" width="100%" height="400" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -324,118 +315,57 @@
   <section id="gallery" class="section">
     <div class="card">
       <h3>Photo Gallery</h3>
-      <p class="muted">Click any image to view larger.</p>
-      <div class="gallery-grid" style="margin-top:12px">
-        <img src="https://picsum.photos/seed/g1/500/380" alt="g1" onclick="openLightbox(this.src)">
-        <img src="https://picsum.photos/seed/g2/500/380" alt="g2" onclick="openLightbox(this.src)">
-        <img src="https://picsum.photos/seed/g3/500/380" alt="g3" onclick="openLightbox(this.src)">
-        <img src="https://picsum.photos/seed/g4/500/380" alt="g4" onclick="openLightbox(this.src)">
-        <img src="https://picsum.photos/seed/g5/500/380" alt="g5" onclick="openLightbox(this.src)">
-        <img src="https://picsum.photos/seed/g6/500/380" alt="g6" onclick="openLightbox(this.src)">
+      <div class="gallery-grid" style="margin-top:10px">
+        <img src="https://picsum.photos/seed/g1/300/200" alt="">
+        <img src="https://picsum.photos/seed/g2/300/200" alt="">
+        <img src="https://picsum.photos/seed/g3/300/200" alt="">
+        <img src="https://picsum.photos/seed/g4/300/200" alt="">
+        <img src="https://picsum.photos/seed/g5/300/200" alt="">
+        <img src="https://picsum.photos/seed/g6/300/200" alt="">
       </div>
     </div>
   </section>
 
-  <!-- CONTACT (anchor from CTA) -->
-  <section id="contact" class="section">
-    <div class="card">
-      <h3>Contact / Notes</h3>
-      <p class="muted">Replace with your teacher's contact or your email/phone. Make sure to remove placeholder content before submitting.</p>
-    </div>
-  </section>
 </main>
 
-<footer>
-  <div style="max-width:var(--max-w);margin:0 auto;padding:12px 20px" class="center muted">
-    © All About Me — Student Portfolio • Pastel Theme
-  </div>
-</footer>
+<footer>© 2025 Kenneth Samudio — All Rights Reserved</footer>
 
-<!-- Lightbox & SPA JS -->
 <script>
-  // Section switching (SPA)
-  const links = document.querySelectorAll('a[data-target]');
+  // SPA Section Switching
+  const links = document.querySelectorAll('nav a[data-target]');
   const sections = document.querySelectorAll('.section');
-  const mobileNav = document.getElementById('mobileNav');
-  const hambtn = document.getElementById('hambtn');
-
-  function hideAll(){
-    sections.forEach(s=>{
-      s.classList.remove('active');
-      // remove card show class (animation)
-      s.querySelectorAll('[data-anim="pop"]').forEach(c => c.classList.remove('show'));
-    });
-  }
-
-  function showSection(id) {
-    hideAll();
-    const sec = document.getElementById(id);
-    if(!sec) return;
-    sec.classList.add('active');
-
-    // Animate inner cards slightly after reveal
-    setTimeout(()=> {
-      sec.querySelectorAll('[data-anim="pop"]').forEach((c,i)=>{
-        setTimeout(()=> c.classList.add('show'), i*80);
-      });
-    }, 60);
-
-    // close mobile nav if open
-    if(window.innerWidth <= 720 && mobileNav.style.display === 'block') {
-      toggleMobileNav(false);
-    }
-
-    // focus top of section for accessibility
-    window.scrollTo({top:0,behavior:'smooth'});
-  }
-
   links.forEach(link=>{
-    link.addEventListener('click', (e)=>{
+    link.addEventListener('click',e=>{
       e.preventDefault();
-      const id = link.getAttribute('data-target');
-      showSection(id);
+      const target = link.dataset.target;
+      sections.forEach(sec=>sec.classList.remove('active'));
+      document.getElementById(target).classList.add('active');
+      if(document.getElementById('mobileNav').style.display==='block') document.getElementById('mobileNav').style.display='none';
     });
   });
 
-  // mobile nav toggle
-  function toggleMobileNav(force) {
-    const isOpen = mobileNav.style.display === 'block';
-    const shouldOpen = (typeof force === 'boolean') ? force : !isOpen;
-    mobileNav.style.display = shouldOpen ? 'block' : 'none';
-    mobileNav.setAttribute('aria-hidden', shouldOpen ? 'false' : 'true');
-  }
-  hambtn && hambtn.addEventListener('click', ()=> toggleMobileNav());
+  // Hamburger mobile menu
+  const hambtn=document.getElementById('hambtn');
+  const mobileNav=document.getElementById('mobileNav');
+  hambtn.addEventListener('click',()=>{mobileNav.style.display=(mobileNav.style.display==='block')?'none':'block'});
 
-  // Lightbox
-  function openLightbox(src) {
-    const overlay = document.createElement('div');
-    overlay.style = 'position:fixed;inset:0;background:rgba(6,8,19,0.7);display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px';
-    const img = document.createElement('img');
-    img.src = src;
-    img.style = 'max-width:95%;max-height:95%;border-radius:12px;box-shadow:0 18px 50px rgba(2,6,23,0.6)';
-    overlay.appendChild(img);
-    overlay.addEventListener('click', ()=> overlay.remove());
-    document.body.appendChild(overlay);
-  }
-
-  // show default section on load
-  document.addEventListener('DOMContentLoaded', ()=> {
-    showSection('home');
-    // ensure mobile nav hidden initially
-    mobileNav.style.display = 'none';
+  // Lab collapsible animation
+  document.querySelectorAll('.lab-toggle').forEach(header=>{
+    header.addEventListener('click',()=>{
+      const content=header.nextElementSibling;
+      if(content.style.maxHeight && content.style.maxHeight!=='0px'){
+        content.style.maxHeight='0px';
+        header.textContent=header.textContent.replace('▲','▼');
+      } else{
+        content.style.maxHeight=content.scrollHeight+'px';
+        header.textContent=header.textContent.replace('▼','▲');
+      }
+    });
   });
 
-  // keyboard navigation: left/right arrows cycle through main sections (optional)
-  const order = ['home','about','family','school','hobbies','favorites','goals','labs','gallery','contact'];
-  document.addEventListener('keydown',(e)=>{
-    if(['ArrowLeft','ArrowRight'].includes(e.key)){
-      const visible = [...sections].findIndex(s=>s.classList.contains('active'));
-      if(visible === -1) return;
-      let idx = visible;
-      if(e.key === 'ArrowRight') idx = (visible+1) % order.length;
-      if(e.key === 'ArrowLeft') idx = (visible-1 + order.length) % order.length;
-      showSection(order[idx]);
-    }
+  // Optional: Animate cards on load
+  document.querySelectorAll('.card[data-anim="pop"]').forEach((c,i)=>{
+    setTimeout(()=>{c.classList.add('show')}, i*120)
   });
 </script>
 
