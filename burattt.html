@@ -1,337 +1,399 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>ALL ABOUT ME — Student Portfolio</title>
 
 <style>
   :root{
-    --bg:#f3f4f6;
-    --surface:#ffffff;
-    --text:#111827;
-    --muted:#6b7280;
-    --accent:#4f46e5;
-    --radius:14px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;font-family:Arial, sans-serif;}
-  body{background:var(--bg);color:var(--text);line-height:1.6;}
-
-  /* NAVIGATION */
-  header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:var(--surface);
-    padding:15px 25px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.1);
-    position:sticky;
-    top:0;
-    z-index:10;
-  }
-  header h1{font-size:22px;font-weight:700;color:var(--accent);}
-  nav a{
-    margin-left:20px;
-    text-decoration:none;
-    color:var(--text);
-    font-weight:600;
-  }
-  nav a:hover{color:var(--accent);}
-  #hambtn{
-    display:none;
-    font-size:26px;
-    cursor:pointer;
+    --bg: #fbfbfe;
+    --surface: #ffffff;
+    --muted: #6b7280;
+    --accent1: #a8d5ff;
+    --accent2: #ffd6e7;
+    --accent3: #e9d7ff;
+    --accent4: #c8fde5;
+    --text: #0f172a;
+    --glass: rgba(255,255,255,0.6);
+    --radius: 14px;
+    --max-w: 1100px;
+    --shadow: 0 8px 28px rgba(15,23,42,0.08);
+    --nav-height: 68px;
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
   }
 
-  /* MOBILE NAV */
-  .nav-mobile{
-    display:none;
-    flex-direction:column;
-    background:var(--surface);
-    padding:10px 0;
-  }
-  .nav-mobile a{
-    padding:12px 20px;
-    text-decoration:none;
-    color:var(--text);
-    border-top:1px solid #e5e7eb;
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-size:16px;line-height:1.45;color:var(--text);background:linear-gradient(180deg,var(--bg),#ffffff)}
+  
+  header{position:sticky;top:0;z-index:60;backdrop-filter: blur(6px);background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));border-bottom:1px solid rgba(15,23,42,0.04)}
+  .nav-wrap{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;height:var(--nav-height)}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent3));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:20px;box-shadow:var(--shadow)}
+  .brand h1{margin:0;font-size:18px;letter-spacing:0.2px}
+  .brand p{margin:0;font-size:12px;color:var(--muted)}
+  nav.primary{display:flex;align-items:center;gap:8px}
+  nav.primary a{text-decoration:none;padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:600;font-size:14px;transition:all .25s ease}
+  nav.primary a:hover{background:rgba(168,213,255,0.25);color:var(--text)}
+  .cta{background:linear-gradient(90deg,var(--accent2),var(--accent3));padding:8px 12px;color:#222;border-radius:10px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+  .hamburger{display:none;background:none;border:0;padding:8px;border-radius:8px}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;border-radius:2px}
+
+  main{max-width:var(--max-w);margin:28px auto;padding:0 20px}
+  .hero{display:grid;grid-template-columns:1fr 340px;gap:22px;align-items:start}
+  .hero-card,.card{background:var(--surface);padding:22px;border-radius:var(--radius);box-shadow:var(--shadow)}
+  .hero h2{margin:0 0 8px;font-size:28px}
+  .lead{margin:0;color:var(--muted)}
+  .tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+  .tag{background:linear-gradient(90deg,var(--accent4),#eafbf6);padding:8px 10px;border-radius:999px;font-weight:700;color:var(--text);font-size:13px}
+  .profile-box{background:linear-gradient(180deg,#fff,#f8fbff);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:12px;align-items:center;box-shadow:var(--shadow)}
+  .avatar{width:100%;height:260px;border-radius:10px;background-image:linear-gradient(135deg,var(--accent1),var(--accent3));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:28px}
+
+  .section{display:none;opacity:0;transform:translateY(6px);transition:opacity .45s ease, transform .45s ease;will-change:opacity,transform;margin-top:18px}
+  .section.active{display:block;opacity:1;transform:none}
+  .section-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+
+  .family{display:flex;gap:14px;flex-wrap:wrap}
+  .member{flex:1 1 150px;min-width:120px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#fff,#fcfcff)}
+  .member img{width:100%;height:140px;object-fit:cover;display:block}
+  .member p{margin:8px;padding:0;text-align:center;color:var(--muted)}
+
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+  .gallery-grid img{width:100%;height:110px;object-fit:cover;border-radius:10px;cursor:pointer;transition:transform .25s ease}
+  .gallery-grid img:hover{transform:scale(1.03)}
+
+  .lab-card { margin-bottom: 20px; padding: 12px 18px; background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); }
+  .lab-card h3 { margin:0; cursor:pointer; user-select:none }
+  .lab-content { margin-top:12px; overflow:hidden; max-height:0; transition:max-height 0.4s ease; }
+  .lab-btn { display:inline-block; padding:10px 20px; background:#007BFF; color:#fff; border-radius:5px; text-decoration:none; transition:0.3s }
+  .lab-btn:hover { background:#0056b3 }
+
+  @media (max-width:980px){.hero{grid-template-columns:1fr}.section-grid{grid-template-columns:1fr}.profile-box{order:-1}}
+  @media (max-width:720px){
+    nav.primary{display:none}
+    .hamburger{display:block}
+    .nav-mobile{display:none;position:absolute;top:var(--nav-height);left:0;right:0;background:linear-gradient(180deg,rgba(255,255,255,0.98),#fff);box-shadow:0 8px 30px rgba(15,23,42,0.06);padding:12px;border-bottom-left-radius:10px;border-bottom-right-radius:10px}
+    .nav-mobile a{display:block;padding:10px 12px;border-radius:8px;color:var(--muted);text-decoration:none;margin-bottom:6px}
+    .nav-mobile a:hover{background:rgba(168,213,255,0.18);color:var(--text)}
   }
 
-  @media(max-width:768px){
-    nav{display:none;}
-    #hambtn{display:block;}
-  }
-
-  /* SECTIONS */
-  .section{
-    display:none;
-    padding:40px 20px;
-    max-width:1100px;
-    margin:auto;
-  }
-  .section.active{display:block;}
-
-  h2{
-    margin-bottom:20px;
-    font-size:28px;
-    color:var(--accent);
-    text-align:center;
-  }
-
-  /* CARDS */
-  .card{
-    background:var(--surface);
-    padding:20px;
-    border-radius:var(--radius);
-    box-shadow:0 3px 6px rgba(0,0,0,0.1);
-    margin-bottom:20px;
-  }
-
-  /* GALLERY */
-  .gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-  }
-  .gallery img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-    border-radius:var(--radius);
-    box-shadow:0 2px 5px rgba(0,0,0,0.15);
-  }
-
-  /* FAMILY / HOBBIES CARDS */
-  .flex-cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
-  }
-  .profile-img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-    border-radius:var(--radius);
-    margin-bottom:15px;
-  }
-
-  /* LAB COLLAPSIBLE */
-  .lab-toggle{
-    background:var(--accent);
-    color:white;
-    padding:12px 18px;
-    cursor:pointer;
-    border-radius:var(--radius);
-    margin-bottom:6px;
-    font-weight:700;
-  }
-  .lab-content{
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .3s ease;
-    background:white;
-    padding:0 18px;
-    border-radius:var(--radius);
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
-  }
-  .lab-content a{
-    display:inline-block;
-    margin:12px 0;
-    padding:10px 14px;
-    background:var(--accent);
-    color:white;
-    text-decoration:none;
-    border-radius:var(--radius);
-  }
-
+  .muted{color:var(--muted)}
+  .center{text-align:center}
+  footer{padding:24px 0;color:var(--muted);text-align:center;font-size:14px}
+  .card[data-anim="pop"]{transform-origin:center;transition:transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s ease;}
+  .card.show{transform:translateY(-6px);opacity:1}
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1>ALL ABOUT ME</h1>
-  <nav>
+  <div class="nav-wrap">
+    <div class="brand">
+      <div class="logo">A</div>
+      <div>
+        <h1>ALL ABOUT ME</h1>
+        <p class="muted">Student Portfolio</p>
+      </div>
+    </div>
+    <nav class="primary" aria-label="Primary navigation">
+      <a href="#" data-target="home">Home</a>
+      <a href="#" data-target="about">About</a>
+      <a href="#" data-target="family">Family</a>
+      <a href="#" data-target="school">School</a>
+      <a href="#" data-target="hobbies">Hobbies</a>
+      <a href="#" data-target="favorites">Favorites</a>
+      <a href="#" data-target="goals">Goals</a>
+      <a href="#" data-target="labs">Labs</a>
+      <a href="#" data-target="gallery">Gallery</a>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a class="cta" href="#contact">Contact</a>
+      <button class="hamburger" aria-label="Open menu" id="hambtn"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="mobileNav" aria-hidden="true" style="display:none;max-width:var(--max-w);margin:0 auto">
     <a href="#" data-target="home">Home</a>
-    <a href="#" data-target="about">About Me</a>
+    <a href="#" data-target="about">About</a>
     <a href="#" data-target="family">Family</a>
     <a href="#" data-target="school">School</a>
     <a href="#" data-target="hobbies">Hobbies</a>
     <a href="#" data-target="favorites">Favorites</a>
     <a href="#" data-target="goals">Goals</a>
-    <a href="#" data-target="labs">Laboratory</a>
+    <a href="#" data-target="labs">Labs Project</a>
     <a href="#" data-target="gallery">Gallery</a>
-  </nav>
-  <div id="hambtn">☰</div>
+  </div>
 </header>
 
-<div id="mobileNav" class="nav-mobile">
-  <a href="#" data-target="home">Home</a>
-  <a href="#" data-target="about">About Me</a>
-  <a href="#" data-target="family">Family</a>
-  <a href="#" data-target="school">School</a>
-  <a href="#" data-target="hobbies">Hobbies</a>
-  <a href="#" data-target="favorites">Favorites</a>
-  <a href="#" data-target="goals">Goals</a>
-  <a href="#" data-target="labs">Laboratory</a>
-  <a href="#" data-target="gallery">Gallery</a>
+<main>
+  <!-- HERO -->
+  <section id="home" class="section active">
+    <div class="hero">
+      <div class="hero-card card" data-anim="pop">
+        <h2>Hi — I'm Kenneth</h2>
+        <p class="lead">Welcome to my student portfolio.</p>
+        <div class="tags">
+          <div class="tag">Grade: 1st Year College</div>
+          <div class="tag">Malvar Batanggas</div>
+          <div class="tag">Birthday: April 5 2007</div>
+        </div>
+        <div style="margin-top:16px" class="card" data-anim="pop">
+          <h3 style="margin:0 0 8px">Quick Highlights</h3>
+          <ul class="muted" style="margin:0;padding-left:18px">
+            <li>Favorite subject: Understanding Self</li>
+            <li>Hobbies: Chess, Basketball, Watching TV</li>
+            <li>Dream: Bussiness Man</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="profile-box">
+        <div class="avatar" style="background:none; padding:0;">
+  <img src="ken.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
 </div>
-
-<!-- HOME -->
-<section id="home" class="section active">
-  <h2>Welcome</h2>
-  <div class="card">
-    <p>Hello! This is my personal portfolio website titled <strong>ALL ABOUT ME</strong>. Explore my life, hobbies, school activities, and more!</p>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-  <h2>About Me</h2>
-  <div class="card">
-    <p>Hello! I’m Kenneth Samudio, and this website is all about me — my interests, experiences, and the things that I enjoy doing every day.</p>
-  </div>
-</section>
-
-<!-- FAMILY -->
-<section id="family" class="section">
-  <h2>My Family</h2>
-  <div class="flex-cards">
-    <div class="card">
-      <img src="mom.jpg" class="profile-img">
-      <h3>My Mother</h3>
-      <p>She is hardworking, loving, and always takes care of us.</p>
+        <div style="width:100%;display:flex;gap:10px;justify-content:center">
+          <div style="flex:1;text-align:center;background:linear-gradient(90deg,var(--accent1),#ffffff);padding:10px;border-radius:10px">Skills<br><strong>HTML • CSS</strong></div>
+          <div style="flex:1;text-align:center;background:linear-gradient(90deg,var(--accent3),#ffffff);padding:10px;border-radius:10px">Hobbies<br><strong>Art • Sports</strong></div>
+        </div>
+      </aside>
     </div>
+  </section>
 
-    <div class="card">
-      <img src="dad.jpg" class="profile-img">
-      <h3>My Father</h3>
-      <p>He is strong, responsible, and always supports us.</p>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section-grid">
+      <div class="card" data-anim="pop">
+        <h3>About Me</h3>
+        <p class="muted">I am Kenneth P. Samudio born on April 5 2007 in San Pioquinto, Malvar, Batanggas. I come from a simple family my father is Nelson S. Samudio he is a family Driver, while my mother is Ma Lency P. Samudio, she currently working on Quatar. I have 2 siblings: my broter John Kevin P. Samudio, 13 years old and my litte sister Ma Krizscha P. Samudio, 8 years old. We also have pets name baho. I studied Elemantary School, San Pioquinto, Elementary, School, Malvar School Arts and trade. My first choice is BSIT at Occidental Mindoro State College. Im a Curious person, my role model is my father cause for me he is the definition of hard working. My hobbies is chess,  basketball, whatching tv. My favorite color is dark black , ny favorite food is kare kare and sinigang, my favorite music is pahina by cup joe I enjoy watching indian movie specially when leading actor is amir khan. i love drinking manggo shake with allan and one of the memorable experience in my life when i try vikings. I really enjoy walking and watching sunset then idont really like snake. after college my plan to work on bharain. my favorite quote is dont wait for the perfect moment make the moment and make it perfect. Kenneth P. Samudio, 18, San Pioquinto, Malvar, Batanggas, Mysterios Curious, Girls.</p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <img src="ken.jpg/seed/about1/400/260" alt="about" style="width:48%;border-radius:10px;object-fit:cover">
+          <img src="https://picsum.photos/seed/about2/400/260" alt="about2" style="width:48%;border-radius:10px;object-fit:cover">
+        </div>
+      </div>
+      <div class="card" data-anim="pop">
+        <h3>Personal Info</h3>
+        <ul class="muted" style="margin:8px 0 0;padding-left:18px">
+          <li><strong>Name:</strong> Kenneth Student</li>
+          <li><strong>Age:</strong> 18</li>
+          <li><strong>Birthplace:</strong> Malvar Batanggas</li>
+          <li><strong>Personality:</strong> Curious, Mysterious</li>
+          <li><strong>Pets you have:</strong> Dog</li>
+          <li><strong>My role models:</strong> Father</li>
+          <li><strong>Favorite foods:</strong> Kare-kare</li>
+          <li><strong>favorite songs:</strong> Pahina, Unti-unti, Heaven, Iris</li>
+          <li><strong>favorite actors:</strong> Amir Khan</li>
+          <li><strong>favorite color:</strong> Dark black</li>
+          <li><strong>Zodiac sign:</strong> Aries</li>
+          <li><strong>Year of the:</strong> Fire Pig</li>
+          <li><strong>Favorite quotes:</strong> Dont wait for the perfect moment make the moment and make it perfect</li>
+          <li><strong>Favorite movies:</strong> Dangal, Pk, Dangal, 12th fail, 3 idiots, Sitaare Zameen Par</li>
+        </ul>
+      </div>
     </div>
+  </section>
 
+  <!-- FAMILY -->
+  <section id="family" class="section">
     <div class="card">
-      <img src="sibling.jpg" class="profile-img">
-      <h3>My Sibling</h3>
-      <p>My sibling is caring, funny, and someone I can always rely on.</p>
+      <h3>Family</h3>
+      <p class="muted">Replace these placeholders with pictures and names of your family members.</p>
+      <div class="family" style="margin-top:12px">
+        <div class="member">
+          <img src="your-mom-photo.jpg" alt="Mom">
+          <p>Mom — Ma lency P. Samudio</p>
+        </div>
+        <div class="member">
+          <img src="your-mom-photo.jpg" alt="Dad">
+          <p>Dad — Nelson S. Samudio</p>
+        </div>
+        <div class="member">
+          <img src="your-mom-photo.jpg" alt="Siblings">
+          <p>Sibling — Ma Krizchka P. Samudio </p>
+          <img src="your-mom-photo.jpg" alt="Siblings">
+          <p>Sibling — John Kevin P. Samudio </p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SCHOOL -->
-<section id="school" class="section">
-  <h2>School & Activities</h2>
-  <div class="card">
-    <p>I study at **[Your School Name]**, where I participate in various activities, classes, and school events that help me grow academically and socially.</p>
-  </div>
-</section>
+  <!-- SCHOOL -->
+  <section id="school" class="section">
+    <div class="card">
+      <h3>School & Activities</h3>
+      <p class="muted">Occidental, Mindoro, State, College, First Year College, Chess, and achievements. .</p>
+      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+        <div style="flex:1;min-width:220px;background:linear-gradient(90deg,var(--accent4),#fff);padding:12px;border-radius:10px">Clubs<br><strong>Science Club</strong></div>
+        <div style="flex:1;min-width:220px;background:linear-gradient(90deg,var(--accent2),#fff);padding:12px;border-radius:10px">Team<br><strong>Basketball</strong></div>
+      </div>
+    </div>
+  </section>
 
-<!-- HOBBIES -->
-<section id="hobbies" class="section">
-  <h2>My Hobbies</h2>
-  <div class="flex-cards">
-    <div class="card"><p>I enjoy cycling and exploring different places.</p></div>
-    <div class="card"><p>I love watching educational videos and documentaries.</p></div>
-    <div class="card"><p>I like coding and experimenting with websites.</p></div>
-  </div>
-</section>
+  <!-- HOBBIES -->
+  <section id="hobbies" class="section">
+    <div class="section-grid">
+      <div class="card">
+        <h3>Hobbies</h3>
+        <p class="muted">What you enjoy doing: walking, sports, coding, reading, etc.</p>
+        <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+          <div style="flex:1;min-width:160px;background:linear-gradient(135deg,var(--accent1),#fff);padding:12px;border-radius:10px">Drawing</div>
+          <div style="flex:1;min-width:160px;background:linear-gradient(135deg,var(--accent3),#fff);padding:12px;border-radius:10px">Basketball</div>
+          <div style="flex:1;min-width:160px;background:linear-gradient(135deg,var(--accent4),#fff);padding:12px;border-radius:10px">Coding</div>
+        </div>
+      </div>
 
-<!-- FAVORITES -->
-<section id="favorites" class="section">
-  <h2>My Favorites</h2>
-  <div class="card">
-    <p>Favorite Food: Batangas Lomi<br>
-       Favorite Drink: Milk Tea<br>
-       Favorite Color: Blue<br>
-       Favorite Hobby: Cycling
-    </p>
-  </div>
-</section>
+      <div class="card">
+        <h3>Hobby Photos</h3>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <img src="https://picsum.photos/seed/h1/400/260" alt="h1" style="width:48%;border-radius:8px;object-fit:cover">
+          <img src="https://picsum.photos/seed/h2/400/260" alt="h2" style="width:48%;border-radius:8px;object-fit:cover">
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- GOALS -->
-<section id="goals" class="section">
-  <h2>Future Goals</h2>
-  <div class="card">
-    <p>I want to become a skilled web developer and create websites that help people. My goal is to continue learning, improving, and building projects.</p>
-  </div>
-</section>
+  <!-- FAVORITES -->
+  <section id="favorites" class="section">
+    <div class="card">
+      <h3>Favorites</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:12px">
+        <div style="background:linear-gradient(90deg,var(--accent1),#fff);padding:12px;border-radius:10px">Food<br><strong>Pizza</strong></div>
+        <div style="background:linear-gradient(90deg,var(--accent2),#fff);padding:12px;border-radius:10px">Music<br><strong>rap</strong></div>
+        <div style="background:linear-gradient(90deg,var(--accent3),#fff);padding:12px;border-radius:10px">Place<br><strong>Beach</strong></div>
+        <div style="background:linear-gradient(90deg,var(--accent4),#fff);padding:12px;border-radius:10px">Subject<br><strong>Perdev</strong></div>
+      </div>
+    </div>
+  </section>
 
-<!-- LABS -->
-<section id="labs" class="section">
-  <h2>Laboratory Exercises</h2>
+  <!-- GOALS -->
+  <section id="goals" class="section">
+    <div class="card">
+      <h3>Future Goals</h3>
+      <ul class="muted" style="padding-left:18px">
+        <li>Graduate Collge</li>
+        <li>Become a Bussiness Man</li>
+        <li>Travel to Around the World</li>
+      </ul>
+    </div>
+  </section>
 
-  <div class="lab-toggle">Lab 1 – Personal Info ▼</div>
-  <div class="lab-content">
-    <a href="https://knnthsmd-beep.github.io/myportfoliowebsite/kenneth%20form.html" target="_blank">Open Lab 1</a>
-  </div>
+  <!-- LABS -->
+  <section id="labs" class="section">
+    <div class="card" data-anim="pop">
+      <h2>Laboratory Exercises</h2>
 
-  <div class="lab-toggle">Lab 2 – Bike Website ▼</div>
-  <div class="lab-content">
-    <a href="https://knnthsmd-beep.github.io/myportfoliowebsite/bike.html" target="_blank">Open Lab 2</a>
-  </div>
+      <!-- Lab 1 -->
+      <div class="lab-card" data-anim="pop">
+        <h3 class="lab-toggle">Lab 1: The Story of Kenneth ▼</h3>
+        <div class="lab-content">
+          <iframe src="https://knnthsmd-beep.github.io/myportfoliowebsite/the%20story%20of%20kenneth.html" width="100%" height="400" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+        </div>
+      </div>
 
-  <div class="lab-toggle">Lab 3 – Batangas Lomi ▼</div>
-  <div class="lab-content">
-    <a href="https://knnthsmd-beep.github.io/myportfoliowebsite/batanggas%20lomi.html" target="_blank">Open Lab 3</a>
-  </div>
+      <!-- Lab 2 -->
+      <div class="lab-card" data-anim="pop">
+        <h3 class="lab-toggle">Lab 2: Batanggas Lomi ▼</h3>
+        <div class="lab-content">
+          <iframe src="https://knnthsmd-beep.github.io/myportfoliowebsite/batanggas%20lomi.html" width="100%" height="400" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+        </div>
+      </div>
 
-  <div class="lab-toggle">Lab 4 – Order Form ▼</div>
-  <div class="lab-content">
-    <a href="http://localhost/orderform/index.php" target="_blank">Open Lab 4</a>
-  </div>
+      <!-- Lab 3 -->
+      <div class="lab-card" data-anim="pop">
+        <h3 class="lab-toggle">Lab 3: Bike ▼</h3>
+        <div class="lab-content">
+          <iframe src="https://knnthsmd-beep.github.io/myportfoliowebsite/bike.html" width="100%" height="400" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+        </div>
+      </div>
 
-</section>
+      <!-- Lab 4 (PHP) -->
+      <div class="lab-card" data-anim="pop">
+        <h3 class="lab-toggle">Lab 4: Order Form ▼</h3>
+        <div class="lab-content">
+          <p>This lab uses PHP, so it opens in a new tab:</p>
+          <a href="#" target="_blank" class="lab-btn">Open Lab 4</a>
+        </div>
+      </div>
 
-<!-- GALLERY -->
-<section id="gallery" class="section">
-  <h2>Photo Gallery</h2>
-  <div class="gallery">
-    <img src="1.jpg" alt="Photo 1">
-    <img src="2.jpg" alt="Photo 2">
-    <img src="3.jpg" alt="Photo 3">
-    <img src="4.jpg" alt="Photo 4">
-  </div>
-</section>
+      <!-- Lab 5 -->
+      <div class="lab-card" data-anim="pop">
+        <h3 class="lab-toggle">Lab 5: Kenneth Form ▼</h3>
+        <div class="lab-content">
+          <iframe src="https://knnthsmd-beep.github.io/myportfoliowebsite/kenneth%20form.html" width="100%" height="400" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section">
+    <div class="card">
+      <h3>Photo Gallery</h3>
+      <div class="gallery-grid" style="margin-top:10px">
+        <img src="<div class="avatar" style="background:none; padding:0;">
+  <img src="YOUR_PHOTO_LINK.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+       </div>
+        <img src="group.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+        <img src="dress.jfif" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+        <img src="dress.jfif" alt="Gallery Photo">
+        <img src="group.jfif" alt="Gallery Photo">
+        <img src="ec resort.jfif" alt="Gallery Photo">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2025 Kenneth Samudio — All Rights Reserved</footer>
 
 <script>
-  // SPA navigation
-  const links=document.querySelectorAll('nav a[data-target], #mobileNav a[data-target]');
-  const sections=document.querySelectorAll('.section');
-  const hambtn=document.getElementById('hambtn');
-  const mobileNav=document.getElementById('mobileNav');
-
+  // SPA Section Switching
+  const links = document.querySelectorAll('nav a[data-target]');
+  const sections = document.querySelectorAll('.section');
   links.forEach(link=>{
     link.addEventListener('click',e=>{
       e.preventDefault();
-      const t=link.dataset.target;
-      sections.forEach(s=>s.classList.remove('active'));
-      document.getElementById(t).classList.add('active');
-
-      if(mobileNav.style.display==='block'){
-        mobileNav.style.display='none';
-      }
+      const target = link.dataset.target;
+      sections.forEach(sec=>sec.classList.remove('active'));
+      document.getElementById(target).classList.add('active');
+      if(document.getElementById('mobileNav').style.display==='block') document.getElementById('mobileNav').style.display='none';
     });
   });
 
-  hambtn.addEventListener('click',()=>{
-    mobileNav.style.display=mobileNav.style.display==='block'?'none':'block';
-  });
+  // Hamburger mobile menu
+  const hambtn=document.getElementById('hambtn');
+  const mobileNav=document.getElementById('mobileNav');
+  hambtn.addEventListener('click',()=>{mobileNav.style.display=(mobileNav.style.display==='block')?'none':'block'});
 
-  // Lab collapsible
-  document.querySelectorAll('.lab-toggle').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const content=btn.nextElementSibling;
-
-      if(content.style.maxHeight){
-        content.style.maxHeight=null;
-        btn.textContent=btn.textContent.replace('▲','▼');
-      }else{
+  // Lab collapsible animation
+  document.querySelectorAll('.lab-toggle').forEach(header=>{
+    header.addEventListener('click',()=>{
+      const content=header.nextElementSibling;
+      if(content.style.maxHeight && content.style.maxHeight!=='0px'){
+        content.style.maxHeight='0px';
+        header.textContent=header.textContent.replace('▲','▼');
+      } else{
         content.style.maxHeight=content.scrollHeight+'px';
-        btn.textContent=btn.textContent.replace('▼','▲');
+        header.textContent=header.textContent.replace('▼','▲');
       }
     });
+  });
+
+  // Optional: Animate cards on load
+  document.querySelectorAll('.card[data-anim="pop"]').forEach((c,i)=>{
+    setTimeout(()=>{c.classList.add('show')}, i*120)
   });
 </script>
 
 </body>
-</html>
+</html> 
+
+
+
+
+
+
+
+
+
 
