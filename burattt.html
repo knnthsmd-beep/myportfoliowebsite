@@ -56,9 +56,33 @@
   .section-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 
   .family{display:flex;gap:14px;flex-wrap:wrap}
-  .member{flex:1 1 150px;min-width:120px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#fff,#fcfcff)}
-  .member img{width:100%;height:140px;object-fit:cover;display:block}
-  .member p{margin:8px;padding:0;text-align:center;color:var(--muted)}
+  .member {
+  flex: 1 1 150px;
+  min-width:120px;
+  border-radius:12px;
+  overflow:hidden;
+  background: linear-gradient(180deg,#fff,#fcfcff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member img {
+  width: 100%;
+  height: 180px; /* fixed height to make all images uniform */
+  object-fit: cover; /* ensures image fills the box without distortion */
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
+.member p {
+  margin: 8px 0 0;
+  padding: 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
 
   .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
   .gallery-grid img{width:100%;height:110px;object-fit:cover;border-radius:10px;cursor:pointer;transition:transform .25s ease}
@@ -399,6 +423,7 @@
 
 </body>
 </html> 
+
 
 
 
