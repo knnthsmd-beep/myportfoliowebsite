@@ -85,6 +85,27 @@
       margin-bottom: 20px;
     }
 
+    /* COLLECTION GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px; /* Fixed height for uniformity */
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -160,10 +181,12 @@
     <!-- COLLECTION -->
     <section id="collection">
       <h2>Collection</h2>
-      <p>
-        This section will contain my artworks, designs, and creative outputs.
-        More content coming soon.
-      </p>
+      <div class="gallery">
+        <img src="collection/c1.jfif" alt="Art 1">
+        <img src="collection/c2.jfif" alt="Art 2">
+        <img src="collection/c3.jfif" alt="Art 3">
+        <img src="collection/c4.jfif" alt="Art 4">
+      </div>
     </section>
 
     <!-- CONTACT -->
@@ -181,5 +204,3 @@
 
 </body>
 </html>
-
-
