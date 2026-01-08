@@ -1,149 +1,420 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Layout</title>
-		<link rel="stylesheet" type="text/css" href="css/960_12_col.css" />
-		<style type="text/css">
-			@font-face {
-				font-family: 'QuicksandBook';
-				src: url('fonts/Quicksand_Book-webfont.eot');
-				src: url('fonts/Quicksand_Book-webfont.eot?#iefix') format('embedded-opentype'),
-					url('fonts/Quicksand_Book-webfont.woff') format('woff'),
-					url('fonts/Quicksand_Book-webfont.ttf') format('truetype'),
-					url('fonts/Quicksand_Book-webfont.svg#QuicksandBook') format('svg');
-				font-weight: normal;
-				font-style: normal;}
-			body {
-				color: #ffffff;
-				background: #413f3b url("bg-triangl.png");
-				font-family: Georgia, "Times New Roman", Times, serif;
-				font-size: 90%;
-				margin: 0px;
-				text-align: center;}
-			a {
-				color: #b5c1ad;
-				text-decoration: none;}
-			a:hover {
-				color: #ffffff;}
-			.header {
-				background-image: url("bg-header.jpg");
-				padding: 0px 0px 0px 0px;
-				height: 100px;
-				position: fixed;
-				top: 0px;
-				width: 100%;
-				z-index: 50;}
-			.nav {
-				float: right;
-				font-family: QuicksandBook, Helvetica, Arial, sans-serif;
-				padding: 45px 0px 0px 0px;
-				text-align: right;}
-			.wrapper {
-				width: 960px;
-				margin: 0px auto;
-				background-image: url("bg-triangle.png");
-				background-repeat: no-repeat;
-				background-position: 0px 0px;
-				text-align: left;}
-			.logo {
-				margin-bottom: 20px;}
-			h1, h2 {
-				font-family: QuicksandBook, Helvetica, Arial, sans-serif;
-				font-weight: normal;
-				text-transform: uppercase;}
-			h1 {
-				font-size: 240%;
-				margin-top: 140px;}
-			.date {
-				font-family: Arial, Helvetica, sans-serif;
-				font-size: 75%;
-				color: #b5c1ad;}
-			.intro {
-				clear: left;
-				font-size: 90%;
-				line-height: 1.4em;}
-			.main-story {
-				background-image: url("triangles.png");
-				background-repeat: no-repeat;
-				background-position: 122px 142px;
-				height: 570px;}
-			.more-articles {
-				border-top: 1px solid #ffffff;
-				padding: 10px;}
-			.more-articles p {
-				border-bottom: 1px solid #807c72;
-				padding: 5px 0px 15px 0px;
-				font-size: 80%;}
-			.more-articles p:last-child {
-				border-bottom: none;}
-			.footer {
-				clear: both;
-				background: rgba(0, 0, 0, 0.2);
-				padding: 5px 10px;}
-			.footer p {
-				font-family: Helvetica, Arial, sans-serif;
-				font-size: 75%;
-				text-align: right;}
-			.footer a {
-				color: #807c72;}
-		</style>
-	</head>
-	<body>
-		<div class="header">
-			<div class="container_12">
-				<div class="grid_5">
-					<img src="logo.png" alt="Pedal Faster - The modern bicycle magazine" width="216" height="37" class="logo" />
-					<img src="header-triangle.png" alt="" width="116" height="100" />
-				</div>
-				<div class="nav grid_7">
-					<a href="">home</a> / <a href="">news</a> / <a href="">archives</a> / <a href="">about</a> / <a href="">contact</a>
-				</div>
-			</div>
-		</div>
-		<div class="wrapper">
-			<div class="main-story container_12">
-				<div class="grid_6 push_6">
-					<h1><a href="">Fixed Gear Forever</a></h1>
-				</div>
-				<div class="intro grid_3 push_9">
-					<p class="date">3 November 2025</p>
-					<p>The veloheld combines minimalist design with superb quality. Devoid of excessive graphics and gear shift components, the veloheld product range delights us with its beauty and simplicity. The black and white (yin and yang?) bicycles feature a short wheelbase, a single gear and a narrow handlebar... All you need to explore the city streets.</p>
-					<p>For those who want to create their bike themselves, the veloheld frames come in three sizes and two colours and are the perfect starting point. <a href="">Continue reading...</a></p>
-				</div>
-			</div><!-- .main-story -->
-			<div class="more-articles container_12">
-				<h2 class="grid_12"><a href="">More Articles</a></h2>
-				<div class="grid_3">
-					<img src="more1.jpg" alt="The road ahead" width="220" height="125" />
-					<p><a href="">On the Road: From the fixed gear fanatic's point of view</a></p>
-					<p><a href="">Brand History: Pashley Cycles - hand-built in England</a></p>
-					<p><a href="">Frame Wars: Innovations in cycle manufacture and repair</a></p>
-				</div>
-				<div class="grid_3">
-					<img src="more2.jpg" alt="Sketchbook" width="220" height="125" />
-					<p><a href="">Touring Diary: A sketchbook in your basket</a></p>
-					<p><a href="">Top Ten Newcomers for 2012: A peek at what's to come</a></p>
-					<p><a href="">InnerTube: The best cycling videos on the web</a></p>
-				</div>
-				<div class="grid_3">
-					<img src="more3.jpg" alt="Repair shop sign" width="220" height="125" />
-					<p><a href="">Product Review: All baskets were not created equal</a></p>
-					<p><a href="">Going Public: Out &amp; about with the founder of Public</a></p>
-					<p><a href="">Cycle Lane Defence: Know your rights</a></p>
-				</div>
-				<div class="grid_3">
-					<img src="more4.jpg" alt="Schwinn Spitfire" width="220" height="125" />
-					<p><a href="">Bicycle Hall of Fame: The 1958 Schwinn Spitfire</a></p>
-					<p><a href="">Reader Survey: Share your thoughts with us!</a></p>
-					<p><a href="">Chain Gang: The evolution of the humble bike chain</a></p>
-				</div>
-			</div><!-- .more-articles -->
-		</div><!-- .wrapper -->
-		<div class="footer clearfix">
-			<div class="container_12">
-				<p class="grid_12">Submitted by homer dumaran  | Copyright &copy; 2025</a></p>
-			</div>
-		</div>
-	</body>
 
-</html>
+Homer
+<!DOCTYPE html>
+<!-- saved from url=(0064)file:///C:/Users/USER/Documents/pinakbet%20recipe%20norella.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinakbet Recipe</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            animation: gradientShift 15s ease infinite;
+            background-size: 200% 200%;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '🥬';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.1;
+            top: -20px;
+            left: -30px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .header::after {
+            content: '🍆';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.1;
+            bottom: -20px;
+            right: -20px;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.2em;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        .info-bar {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .info-item {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+            flex: 1;
+            min-width: 120px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .info-icon {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+        
+        .info-label {
+            font-size: 0.85em;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .info-value {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: #667eea;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 2px;
+        }
+        
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .ingredient-item {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 15px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .ingredient-item:hover {
+            transform: translateX(10px);
+            border-color: #f5576c;
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.3);
+        }
+        
+        .ingredient-icon {
+            font-size: 1.8em;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        .ingredient-text {
+            flex: 1;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .steps {
+            counter-reset: step;
+        }
+        
+        .step {
+            background: white;
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            counter-increment: step;
+        }
+        
+        .step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+            border-left-color: #f5576c;
+        }
+        
+        .step::before {
+            content: counter(step);
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2em;
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+        }
+        
+        .step p {
+            line-height: 1.7;
+            color: #444;
+            font-size: 1.05em;
+        }
+        
+        .tips {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+        
+        .tips h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tips ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .tips li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Pinakbet</h1>
+            <p class="subtitle">Filipino Pork Giniling</p>
+        </div>
+        
+        <div class="content">
+            <div class="info-bar">
+                <div class="info-item">
+                    <div class="info-icon">⏱️</div>
+                    <div class="info-label">Prep Time</div>
+                    <div class="info-value">8 min</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">🍳</div>
+                    <div class="info-label">Cook Time</div>
+                    <div class="info-value">21 min</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">🍽️</div>
+                    <div class="info-label">Servings</div>
+                    <div class="info-value">4</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Ingredients</h2>
+                <div class="ingredients-grid">
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon">🐷</span>
+                        <span class="ingredient-text">1/2 kilo ground pork</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon">🦐</span>
+                        <span class="ingredient-text">3 pcs ripe tomatoes chopped</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon">🧄</span>
+                        <span class="ingredient-text">1 pc potatoes cubed
+</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon"></span>
+                        <span class="ingredient-text">1 pc small carrot cubed</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon"></span>
+                        <span class="ingredient-text">2 pc small bell peppers slice into squares</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon"></span>
+                        <span class="ingredient-text">1/4 cup green peas</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon"></span>
+                        <span class="ingredient-text">1/4 cup green peas</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon"></span>
+                        <span class="ingredient-text">1 tsp raisins</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon"></span>
+                        <span class="ingredient-text">2 pc small onion minced</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon"></span>
+                        <span class="ingredient-text">3 cloves garlic minced</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon"></span>
+                        <span class="ingredient-text">2 Tbsp soy sauce</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon"></span>
+                        <span class="ingredient-text">1 Tbsp oyster sauce</span>
+                    </div>
+					<div class="ingredient-item">
+                        <span class="ingredient-icon"></span>
+                        <span class="ingredient-text">1 Tbsp fish sauce</span>
+				    </div>
+					<div class="ingredient-item">
+                        <span class="ingredient-icon"></span>
+                        <span class="ingredient-text">black pepper</span
+				    </div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon"></span>
+                        <span class="ingredient-text">1 cup water</span>
+</span>      
+					</div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-icon"></span>
+                        <span class="ingredient-text">2 Tbsp cooking oil</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Instructions</h2>
+                <div class="steps">
+                    <div class="step">
+                        <p>Heat cooking oil in a pan and sauté garlic and onion until fragrant.</p>
+                    </div>
+                    <div class="step">
+                        <p>Add the chopped tomatoes and saute until the tomatoes are soft.</p>
+                    </div>
+                    <div class="step">
+                        <p>Add the ground pork and stir until it changes in color. Then add soy sauce, oyster sauce and black pepper. Stir for 1 minute then add 1 cup of water.</p>
+                    </div>
+                    <div class="step">
+                        <p>Cover and simmer in low heat for 15 minutes. Then add potatoes and carrots. Stir then cover and simmer until the potatoes are tender.</p>
+                    </div>
+                    <div class="step">
+                        <p>Add the green peas, bell peppers and raisins. Stir to distribute the veggies with the ground pork.</p>
+                    </div>
+                    <div class="step">
+                        <p>Season with patis and add more according to your preferred taste. Cook for 2 to 3 minutes more and turn off heat.</p>
+                    </div>
+                    <div class="step">
+                        <p>Serve hot with cooked rice or bread if desired.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tips">
+                <h3>💡 TASTE OF STORY</h3>
+                <ul>
+                    Pork giniling is often compared to the Latin American dish picadillo, which also features ground meat, tomatoes, and vegetables. That’s no coincidence—Spanish influence during the colonial period left its mark on many Filipino dishes. But over the years, we made it our own. We swapped out some ingredients, adjusted for local taste, and now it sits proudly as a staple in our cuisine.
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body></html>
