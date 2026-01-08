@@ -3,119 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me — My Portfolio</title>
+  <title>My Portfolio</title>
+
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
     }
+
     body {
       font-family: Arial, sans-serif;
       background: #fafafa;
       color: #333;
-      line-height: 1.5;
+      line-height: 1.6;
     }
+
     header {
       background: #4b6cb7;
-      color: white;
-      padding: 30px 0;
+      color: #fff;
+      padding: 50px 20px;
       text-align: center;
     }
+
     nav {
       background: #333;
       position: sticky;
       top: 0;
       z-index: 100;
     }
+
     nav ul {
       list-style: none;
       display: flex;
       justify-content: center;
       padding: 10px 0;
     }
+
     nav ul li a {
-      color: white;
+      color: #fff;
       text-decoration: none;
       padding: 10px 20px;
       transition: background 0.3s;
     }
+
     nav ul li a:hover {
       background: #555;
     }
+
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
     }
-    section#about {
+
+    section {
       background: #fff;
       padding: 40px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
     }
-    section#about h2 {
+
+    section h2 {
       font-size: 2rem;
       margin-bottom: 20px;
-      color: #333;
     }
-    section#about p {
-      margin-bottom: 20px;
-      font-size: 1rem;
+
+    section p {
+      margin-bottom: 15px;
       color: #555;
     }
-    .personal-info p {
-      margin: 8px 0;
+
+    ul.projects li {
+      margin: 10px 0;
     }
+
     footer {
       text-align: center;
-      padding: 20px 0;
+      padding: 20px;
       background: #333;
       color: #fff;
-      margin-top: 60px;
+      margin-top: 40px;
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <h1>My Portfolio</h1>
+  <!-- HEADER / HOME -->
+  <header id="home">
+    <h1>Homer Dumaran</h1>
+    <p>Web Developer • Creative Thinker</p>
   </header>
 
+  <!-- NAVBAR -->
   <nav>
     <ul>
-      <li><a href="home.HTML">Home</a></li>
-      <li><a href="GO.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-	  <li><a href="th.html">Collection</a></li>
-      <li><a href="GGG.html">Contact</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <div class="container">
+
+    <!-- ABOUT -->
     <section id="about">
       <h2>About Me</h2>
 
-      <p>Hi — I’m HOMER — a web-maker at heart. I thrive on turning creative sparks into fully functional, beautiful websites that people enjoy using. 
-	  I’m always exploring new tools and technologies, driven by a love for crafting digital experiences that feel alive and intuitive.
-	  When I’m off the clock, you’ll find me gaming, sketching art, 
-     or dreaming up new creative projects. For me, coding isn’t just a job 
-	 it’s a playground for curiosity and growth. I believe there’s always another trick to learn, another design to sketch, another line of code to master.
-	 If you’re looking for someone who’s passionate, playful, and committed to turning ideas into reality — I’m ready when you are...</p>
+      <p>
+        Hi! I’m <strong>Homer</strong> — a web maker at heart. I love turning creative ideas
+        into fully functional and visually engaging websites that people enjoy using.
+      </p>
 
-      <div class="personal-info">
-        <p><strong>Birthday:</strong> September 27, 2006</p>
-        <p><strong>Age:</strong> 19</p>
-        <p><strong>Hobbies:</strong> Gaming, Coding, Drawing</p>
-        <p><strong>Favorite Food:</strong> Chicken</p>
-        <p><strong>Favorite Drink:</strong> Gin Bilog</p>
-        <p><strong>Favorite Color:</strong> Rainbow</p>
-      </div>
+      <p>
+        When I’m off the clock, you’ll usually find me gaming, sketching, or dreaming up
+        new creative projects. Coding for me isn’t just a job — it’s a passion.
+      </p>
+
+      <p><strong>Birthday:</strong> September 27, 2006</p>
+      <p><strong>Age:</strong> 19</p>
+      <p><strong>Hobbies:</strong> Gaming, Coding, Drawing</p>
+      <p><strong>Favorite Food:</strong> Chicken</p>
+      <p><strong>Favorite Drink:</strong> Gin Bilog</p>
+      <p><strong>Favorite Color:</strong> Rainbow 🌈</p>
     </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul class="projects">
+        <li>✔ Personal Portfolio Website</li>
+        <li>✔ School Web Projects</li>
+        <li>✔ Simple Games & Practice Apps</li>
+      </ul>
+    </section>
+
+    <!-- COLLECTION -->
+    <section id="collection">
+      <h2>Collection</h2>
+      <p>
+        This section will contain my artworks, designs, and creative outputs.
+        More content coming soon.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Email: homer@email.com</p>
+      <p>Facebook: Homer Dumaran</p>
+    </section>
+
   </div>
 
   <footer>
-    <p>&copy; 2025 Mark E. Gacayan</p>
+    <p>&copy; 2025 Homer Dumaran</p>
   </footer>
 
 </body>

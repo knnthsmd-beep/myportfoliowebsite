@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Modern Shake Order Form</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 20px;
+      background: url(https://i.pinimg.com/originals/32/07/8e/32078e4d3c1e9edb4d76dba9a419f71f.jpg) no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .order-form {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      max-width: 700px;
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #d1410c;
+      margin-bottom: 30px;
+    }
+
+    label {
+      margin-top: 15px;
+      display: block;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="number"],
+    input[type="password"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 20px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    .name-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 4%;
+    }
+
+    .name-group .half-width {
+      width: 48%;
+    }
+
+    .shake-type {
+      margin-top: 10px;
+    }
+
+    .shake-type label {
+      font-weight: normal;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .flavor-qty {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .flavor-qty input[type="number"] {
+      width: 100px;
+    }
+
+    button {
+      background-color: #d1410c;
+      color: white;
+      padding: 15px 25px;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #b73707;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto 20px auto;
+      width: 150px;
+      border-radius: 10px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    /* Style for receipt */
+    .receipt {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      font-size: 18px;
+    }
+
+    .receipt h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .receipt table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .receipt table th,
+    .receipt table td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .receipt .totals {
+      text-align: right;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="order-form">
+    <h1> Shake Order Form</h1>
+
+    <img src="shake2.JPEG" alt="Shake">
+
+    <!-- Personal Info -->
+    <div class="section">
+      <div class="name-group">
+        <div class="half-width">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" required>
+        </div>
+        <div class="half-width">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" required>
+        </div>
+      </div>
+
+      <label for="email">Address:</label>
+      <input type="email" id="email" required>
+
+      <label for="contact">Contact Number:</label>
+      <input type="tel" id="contact" required>
+
+      <label for="date">Delivery Date:</label>
+      <input type="date" id="date" required>
+    </div>
+
+    <!-- Burger Type -->
+    <div class="section shake-type">
+      <label>Shake Type:</label>
+      <div class="flavor-qty">
+        <label><input type="checkbox" name="shake" value="Chookies and Cream Shake"> Chookies and Cream (P100)</label>
+        <input type="number" min="0" value="0">
+      </div>
+      <div class="flavor-qty">
+        <label><input type="checkbox" name="shake" value="MangoShake"> Milk Shake (P109)</label>
+        <input type="number" min="0" value="0">
+      </div>
+      <div class="flavor-qty">
+        <label><input type="checkbox" name="shake" value="MangoShake"> Mango Shake (P117)</label>
+        <input type="number" min="0" value="0">
+      </div>
+    </div>
+
+    <!-- Payment Info -->
+    <div class="section">
+      <label for="credit">Your Amount:</label>
+      <input type="text" id="credit" required>
+    </div>
+
+    <!-- Additional Notes -->
+    <div class="section">
+      <label for="notes">Your Comments:</label>
+      <textarea id="notes" rows="4"></textarea>
+    </div>
+
+    <button type="button" id="submitBtn">Submit Order</button>
+
+    <div id="totalDisplay"></div>
+    <div id="changeDisplay"></div>
+  </div>
+
+  <!-- Receipt container -->
+  <div id="receiptContainer"></div>
+
+  <script>
+    const prices = {
+      Chookies and Cream: 100,
+      Milk Shake: 109,
+      Mango Shake: 117,
+    };
+
+    function calculateOrder() {
+      const form = document.querySelector('.order-form');
+      const rows = form.querySelectorAll('.flavor-qty');
+      let total = 0;
+      const items = [];
+
+      rows.forEach(row => {
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        const qtyInput = row.querySelector('input[type="number"]');
+        const qty = parseInt(qtyInput.value) || 0;
+
+        if (checkbox.checked && qty > 0) {
+          const type = checkbox.value;
+          const price = prices[type];
+          const lineTotal = price * qty;
+          total += lineTotal;
+          items.push({ type, qty, price, lineTotal });
+        }
+      });
+
+      const cashInput = document.getElementById('credit');
+      const cash = parseFloat(cashInput.value) || 0;
+      const change = cash - total;
+
+      // Update display
+      let html = <h2>?? Receipt</h2>;
+html += <p><strong>Name:</strong> ${firstName} ${lastName}</p>;
+html += <table><tr><th>Burger</th><th>Qty</th><th>Unit Price</th><th>Line Total</th></tr>;
+
+items.forEach(item => {
+  html += `
+    <tr>
+      <td>${item.type}</td>
+      <td>${item.qty}</td>
+      <td>?${item.price}</td>
+      <td>?${item.lineTotal.toFixed(2)}</td>
+    </tr>
+  `;
+});
+
+html += </table>;
+html += <p class="totals">Total: ?${total.toFixed(2)}</p>;
+html += <p class="totals">Cash Paid: ?${cash.toFixed(2)}</p>;
+html += <p class="totals">Change: ?${change.toFixed(2)}</p>;
+
+
+
+      return { total, cash, change, items };
+    }
+
+    function generateReceipt(data) {
+      const { total, cash, change, items } = data;
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+
+      const receiptDiv = document.createElement('div');
+      receiptDiv.className = 'receipt';
+
+      let html = <h2>?? Receipt</h2>;
+html += <p><strong>Name:</strong> ${firstName} ${lastName}</p>;
+html += <table><tr><th>Burger</th><th>Qty</th><th>Unit Price</th><th>Line Total</th></tr>;
+items.forEach(item => {
+  html += `
+    <tr>
+      <td>${item.type}</td>
+      <td>${item.qty}</td>
+      <td>?${item.price}</td>
+      <td>?${item.lineTotal.toFixed(2)}</td>
+    </tr>`;
+});
+html += </table>;
+html += <p class="totals">Total: ?${total.toFixed(2)}</p>;
+html += <p class="totals">Cash Paid: ?${cash.toFixed(2)}</p>;
+html += <p class="totals">Change: ?${change.toFixed(2)}</p>;
+
+      });
+      html += </table>;
+
+      html += <p class="totals">Total: ?P{total.toFixed(2)}</p>;
+      html += <p class="totals">Cash Paid: ?P{cash.toFixed(2)}</p>;
+      html += <p class="totals">Change: ?P{change.toFixed(2)}</p>;
+
+      receiptDiv.innerHTML = html;
+
+      const container = document.getElementById('receiptContainer');
+      container.innerHTML = ''; // clear old
+      container.appendChild(receiptDiv);
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      const orderData = calculateOrder();
+      generateReceipt(orderData);
+      // Optionally, scroll to receipt
+      document.getElementById('receiptContainer').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.querySelectorAll('input[type="checkbox"], input[type="number"], #credit').forEach(el => {
+      el.addEventListener('input', calculateOrder);
+      el.addEventListener('change', calculateOrder);
+    });
+
+    // initial calculation
+    calculateOrder();
+  </script>
+</body>
+</html>
